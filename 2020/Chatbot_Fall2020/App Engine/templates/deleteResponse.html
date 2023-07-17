@@ -1,0 +1,51 @@
+            <header class="header_area clearfix">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <!-- Menu Area Start -->
+                <div class="col-12 h-100">
+                    <div class="menu_area h-100">
+                        <nav class="navbar h-100 navbar-expand-lg align-items-center">
+                            <!-- Logo -->
+                                     <a class="navbar-brand" href="./index"><img src="/img/core-img/logoe.png" alt="logo"></a>
+
+
+                            <!-- Menu Area -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false"
+                                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                            <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
+                                 <ul class="navbar-nav animated" id="nav">
+                                    <li class="nav-item"><a class="nav-link" href="./logout">退出</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mosh-breadcumb-area" style="background-image: url(/img/core-img/breadcumb.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="bradcumbContent">
+                      <h2>刪除推薦活動</h2>
+                                                <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="./panel">管理面板</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">刪除推薦活動</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+{% extends "layout.html" %}
+{% block title %}查詢結果{% endblock %}
+{% block content %}
+<h1 class="title">刪除成功！</h1>
+
+{% endblock %}

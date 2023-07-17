@@ -1,0 +1,135 @@
+<header class="header_area clearfix">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Menu Area Start -->
+            <div class="col-12 h-100">
+                <div class="menu_area h-100">
+                    <nav class="navbar h-100 navbar-expand-lg align-items-center">
+                        <!-- Logo -->
+                                     <a class="navbar-brand" href="./index"><img src="/img/core-img/logoe.png" alt="logo"></a>
+
+
+                        <!-- Menu Area -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar"
+                            aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="navbar-toggler-icon"></span></button>
+
+                        <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
+                            <ul class="navbar-nav animated" id="nav">
+                                <li class="nav-item"><a class="nav-link" href="./index">主頁</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="./query">活動查詢</a></li>
+                                <li class="nav-item "><a class="nav-link" href="./list">推薦列表</a></li>
+                                <li class="nav-item"><a class="nav-link" href="./admin">管理面板</a></li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mosh-breadcumb-area" style="background-image: url(/img/core-img/breadcumb.png);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="bradcumbContent">
+                    <h2>活動查詢</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% extends "layout.html" %}
+{% block title %}查詢結果{% endblock %}
+{% block content %}
+{% if length > 1 %}
+<h3>久等了，總共為您查詢到 {{length}} 個活動。</h3>
+{% elif length == 1 %}
+<h3>久等了，總共為您查詢到 1 個活動。</h3>
+{% else %}
+<h1 class="display-4">指北君沒有查詢到任何活動。</h1>
+{% endif %}
+
+<div class="field">
+
+    <div id="umsList">
+        {% if length > 1 %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:10%">#</th>
+                    <th style="width:45%">活動名稱</th>
+                    <th style="width:10%">開始時間</th>
+                    <th style="width:10%">結束時間</th>
+                    <th style="width:15%">活動地址</th>
+                    <th style="width:10%">查看詳情</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for i in range(length)%}
+                <tr>
+                    <td>{{exModel['result'][i]['id']}}</td>
+                    <td>{{exModel['result'][i]['name']}}</td>
+                    <td>{{exModel['result'][i]['time']}}</td>
+                    <td>{{exModel['result'][i]['end_time']}}</td>
+                    <td>{{exModel['result'][i]['location']}}</td>
+                    <td><a href="/exs/queryResult?parm={{exModel['result'][i]['id']}}&type=id">詳情</a></td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+        {% elif length == 1 %}
+        <table class="table table-striped">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#</td>
+                    <td>{{exModel['result'][0]['id']}}</td>
+                </tr>
+                <tr>
+                    <td style="width:8%">活動名稱</td>
+                    <td style="width:92%">{{exModel['result'][0]['name']}}</td>
+                </tr>
+                <tr>
+                    <td>開始時間</td>
+                    <td>{{exModel['result'][0]['time']}}</td>
+                </tr>
+                <tr>
+                    <td>結束時間</td>
+                    <td>{{exModel['result'][0]['end_time']}}</td>
+                </tr>
+                <tr>
+                    <td>活動地址</td>
+                    <td>{{exModel['result'][0]['location']}}</td>
+                </tr>
+                <tr>
+                    <td>場地名稱</td>
+                    <td>{{exModel['result'][0]['location_name']}}</td>
+                </tr>
+                <tr>
+                    <td>簡介說明</td>
+                    <td>{{exModel['result'][0]['description']}}</td>
+                </tr>
+                <tr>
+                    <td>售票說明</td>
+                    <td>{{exModel['result'][0]['price']}}</td>
+                </tr>
+                <tr>
+                    <td>售票網站</td>
+                    <td>{{exModel['result'][0]['web_sales']}}</td>
+                </tr>
+            </tbody>
+
+
+        </table>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

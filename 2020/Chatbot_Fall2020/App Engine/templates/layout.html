@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>藝文指北 - {% block title %}{% endblock %}</title>
+  <link href="/style.css" rel="stylesheet">
+  <link href="/css/responsive.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="preloader">
+    <div class="mosh-preloader"></div>
+</div>
+
+  <main>
+    <section class="mosh-team-area section_padding_100">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-12 col-md-12">
+                  <div class="section-heading text-center">
+                    {% block content %}{% endblock %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  </main>
+
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">I'm just an individual who doesn't feel that I need to have somebody qualify my work in any particular way. I'm working for me.</p>
+      <footer class="blockquote-footer">David Bowie (大衛·鮑伊)</footer>
+    </blockquote>
+
+</body>
+    <!-- jQuery-2.2.4 js -->
+    <script src="/js/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="/js/active.js"></script>
+</html>

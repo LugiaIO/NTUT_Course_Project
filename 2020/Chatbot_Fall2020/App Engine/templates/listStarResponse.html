@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推薦列表</title>
+</head>
+
+<body>
+    <header class="header_area clearfix">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <!-- Menu Area Start -->
+                <div class="col-12 h-100">
+                    <div class="menu_area h-100">
+                        <nav class="navbar h-100 navbar-expand-lg align-items-center">
+                                     <a class="navbar-brand" href="./index"><img src="/img/core-img/logoe.png" alt="logo"></a>
+
+
+                            <!-- Menu Area -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false"
+                                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                            <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
+                                <ul class="navbar-nav animated" id="nav">
+                                    <li class="nav-item"><a class="nav-link" href="./index">主頁</a></li>
+                                    <li class="nav-item "><a class="nav-link" href="./query">活動查詢</a></li>
+                                    <li class="nav-item active"><a class="nav-link" href="./list">推薦列表</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="./admin">管理面板</a></li>
+                                </ul>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mosh-breadcumb-area" style="background-image: url(/img/core-img/breadcumb.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="bradcumbContent">
+                        <h2>推薦列表</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% extends "layout.html" %}
+    {% block title %}推薦列表{% endblock %}
+    {% block content %}
+    <div id="umsList">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:25%">#</th>
+                    <th style="width:25%">活動名稱</th>
+                    <th style="width:10%">開始時間</th>
+                    <th style="width:10%">結束時間</th>
+                    <th style="width:20%">活動地址</th>
+                    <th style="width:10%">推薦人</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for i in range(length)%}
+                <tr>
+                    <td>{{starModel['result'][i]['id']}}</td>
+                    <td>{{starModel['result'][i]['ex']['name']}}</td>
+                    <td>{{starModel['result'][i]['ex']['time']}}</td>
+                    <td>{{starModel['result'][i]['ex']['end_time']}}</td>
+                    <td>{{starModel['result'][i]['ex']['location']}}</td>
+                    <td>{{starModel['result'][i]['user']['name']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+
+
+    {% endblock %}
+</body>
+
+</html>
